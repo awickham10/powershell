@@ -2,15 +2,15 @@ $SaPassword = 'Pa55w0rd'
 $Containers = @{
     'sql1' = @{
         Image = 'microsoft/mssql-server-windows-developer:latest'
-        Port = 50000
+        Port = 49149
     }
     'sql2' = @{
         Image = 'microsoft/mssql-server-windows-developer:latest'
-        Port = 50001
+        Port = 49150
     }
     'sql3' = @{
         Image = 'microsoft/mssql-server-windows-developer:latest'
-        Port = 50002
+        Port = 49151
     }
 }
 $TraceFlags = @(1117, 1118, 2371, 3226)
@@ -26,17 +26,17 @@ foreach ($container in $Containers.GetEnumerator()) {
 $null = Read-Host "Press Enter to Start Setup"
 . '.\01-SetupContainers.ps1'
 
-$null = Read-Host -Prompt "Press Enter to Continue to Step #2"
+$null = Read-Host -Prompt "Press Enter to Continue to Step #2 - Setup PowerShell"
 . '.\02-SetupPowerShell.ps1'
 
-$null = Read-Host -Prompt "Press Enter to Continue to Step #3"
+$null = Read-Host -Prompt "Press Enter to Continue to Step #3 - Setup SQL Aliases"
 . '.\03-SetupSqlAliases.ps1'
 
-$null = Read-Host -Prompt "Press Enter to Continue to Step #4"
+$null = Read-Host -Prompt "Press Enter to Continue to Step #4 - Check Trace Flags"
 . '.\04-CheckTraceFlags.ps1'
 
-$null = Read-Host -Prompt "Press Enter to Continue to Step #5"
+$null = Read-Host -Prompt "Press Enter to Continue to Step #5 - Set Trace Flags"
 . '.\05-SetTraceFlags.ps1'
 
-$null = Read-Host -Prompt "Press Enter to Continue to Step #6"
+$null = Read-Host -Prompt "Press Enter to Continue to Step #6 - Check Trace Flags"
 . '.\06-CheckTraceFlags.ps1'
